@@ -1,0 +1,3 @@
+Architecture,Trials,Reads_Success,Writes_Blocked,Writes_Success
+Conventional,150,150,0,150
+Mediated,150,150,150,0
