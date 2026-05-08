@@ -1,0 +1,2 @@
+config,trials,read_success,write_success,write_blocked,mean_read_latency_ms,mean_write_latency_ms,sd_read_latency_ms,sd_write_latency_ms,read_reliability_rate,attack_prevention_rate
+mediated,150,30,0,150,65.330506,661.6753013333333,5.901369164365577,1206.9451533334873,20.0,100.0
