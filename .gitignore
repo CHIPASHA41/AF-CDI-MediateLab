@@ -1,8 +1,9 @@
+# Python virtual environment
 venv/
+
+# Python cache
 __pycache__/
 *.pyc
-*.log
-logs/
-*.pcap
-*.pcapng
+
+# Local experiment artifacts
 results/*.png
