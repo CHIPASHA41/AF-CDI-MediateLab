@@ -1,33 +1,33 @@
+#!/usr/bin/env python3
+
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Load data
-df = pd.read_csv("results/data.csv")
+df = pd.read_csv("results/summary_table.csv")
 
-# Compute metrics
-df["APR"] = (df["Writes_Blocked"] / df["Trials"]) * 100
-df["RRR"] = (df["Reads_Success"] / df["Trials"]) * 100
-
-# IEEE style settings
 plt.rcParams.update({
-    "font.size": 12,
-    "figure.figsize": (6,4),
+    "font.size": 11,
+    "figure.figsize": (5.5, 3.5)
 })
 
-# APR Plot (grayscale)
+# Attack Prevention Rate
 plt.figure()
-plt.bar(df["Architecture"], df["APR"], color="gray")
-plt.ylabel("Percentage (%)")
-plt.title("Attack Prevention Rate (APR)")
-plt.grid(axis='y', linestyle='--', linewidth=0.5)
-plt.savefig("results/apr_ieee.png", dpi=300, bbox_inches='tight')
+plt.bar(df["config"], df["attack_prevention_rate"], color=["0.75", "0.25"])
+plt.ylabel("Attack Prevention Rate (%)")
+plt.xlabel("Architecture")
+plt.ylim(0, 110)
+plt.grid(axis="y", linestyle="--", linewidth=0.5)
+plt.tight_layout()
+plt.savefig("figures/attack_prevention_rate_ieee.png", dpi=300)
 
-# RRR Plot
+# Read Reliability Rate
 plt.figure()
-plt.bar(df["Architecture"], df["RRR"], color="black")
-plt.ylabel("Percentage (%)")
-plt.title("Read Reliability Rate (RRR)")
-plt.grid(axis='y', linestyle='--', linewidth=0.5)
-plt.savefig("results/rrr_ieee.png", dpi=300, bbox_inches='tight')
+plt.bar(df["config"], df["read_reliability_rate"], color=["0.75", "0.25"])
+plt.ylabel("Read Reliability Rate (%)")
+plt.xlabel("Architecture")
+plt.ylim(0, 110)
+plt.grid(axis="y", linestyle="--", linewidth=0.5)
+plt.tight_layout()
+plt.savefig("figures/read_reliability_rate_ieee.png", dpi=300)
 
-print("IEEE-style figures generated.")
+print("Saved IEEE-style figures in figures/")
